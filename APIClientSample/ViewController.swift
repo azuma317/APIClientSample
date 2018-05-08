@@ -12,14 +12,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        APIClient.apiResult { (result) in
+            switch result {
+            case .success(let json):
+                print("success")
+                print(json)
+            case .failure(let error):
+                print("failure")
+                print(error)
+            }
+        }
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
